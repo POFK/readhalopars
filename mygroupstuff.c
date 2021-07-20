@@ -424,13 +424,13 @@ int get_hash_table_size(int argc, void *argv[])
 
   fread(&dummy, sizeof(int), 1, fd);
   swap_Nbyte((char *)&dummy,1,4);
-  printf("dummy=%d\n", dummy);
+  //printf("dummy=%d\n", dummy);
 
   fread(&header, sizeof(io_header), 1, fd);
   fread(&dummy, sizeof(int), 1, fd);
 
   swap_Nbyte((char *)&dummy,1,4);
-  printf("dummy=%d\n", dummy);
+  //printf("dummy=%d\n", dummy);
   fclose(fd);
 
   *NFiles = header.num_files;
