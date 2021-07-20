@@ -33,4 +33,4 @@ int peano_hilbert_key(int x, int y, int z, int bits);
 int get_spherical_region_count(int argc, void *argv[]);
 int get_spherical_region_coordinates(int argc, void *argv[]);
 
-int Mill(int argc, int N, float *py_pos, float *Sxyz, long long *MostboundId);
+int Mill(char snap_path[], char post_path[], int N, float *py_pos, float *Sxyz, long long *MostboundId);

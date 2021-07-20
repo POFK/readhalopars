@@ -21,7 +21,7 @@ struct Vel
     float z;
 };
 
-int Mill(char snap_path[], char post_path[], int argc, int N, float *py_pos, float *Sxyz, long long *MostboundId)
+int Mill(char snap_path[], char post_path[], int N, float *py_pos, float *Sxyz, long long *MostboundId)
 /*    int N=1; //group number */
 {
 
