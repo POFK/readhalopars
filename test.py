@@ -18,13 +18,13 @@ def readgroup(snap_path, post_path, npar, group_rank):
     ppos = ffi.cast("float *", pos.ctypes.data)
     psxyz = ffi.cast("float *", Sxyz.ctypes.data)
     pmb = ffi.cast("long long *", MostboundId.ctypes.data)
-    group_len = Mill(ppos, psnap, 1, group_rank, ppos, psxyz, pmb)
+    group_len = Mill(ppos, psnap, group_rank, ppos, psxyz, pmb)
     assert group_len == npar 
     return pos, Sxyz, MostboundId
 
 if __name__ == "__main__":
     Gnum=[4386162,3831945,2162498,2117511,2117472,1838697,1838697] # group particle number
     N=1  # group rank
-    pos, centre, mb = readgroup(Gnum[N], N)
+    pos, centre, mb = readgroup(snap_path, post_path, Gnum[N], N)
     print(centre)
     print(mb)
