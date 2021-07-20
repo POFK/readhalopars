@@ -10,15 +10,15 @@ post_path = os.path.join(BaseDir, "postproc_063")
 ffi = FFI()
 
 def readgroup(snap_path, post_path, npar, group_rank):
-    psnap = ffi.new("char[]", snap_path)
-    ppost = ffi.new("char[]", post_path)
+    psnap = ffi.new("char[]", snap_path.encode('ascii'))
+    ppost = ffi.new("char[]", post_path.encode('ascii'))
     pos = np.zeros(shape=[npar * 3], dtype=np.float32)
     Sxyz = np.zeros(shape=[3], dtype=np.float32)
     MostboundId = np.zeros(shape=[1], dtype=np.int64)
     ppos = ffi.cast("float *", pos.ctypes.data)
     psxyz = ffi.cast("float *", Sxyz.ctypes.data)
     pmb = ffi.cast("long long *", MostboundId.ctypes.data)
-    group_len = Mill(ppos, psnap, group_rank, ppos, psxyz, pmb)
+    group_len = Mill(psnap, ppost, group_rank, ppos, psxyz, pmb)
     assert group_len == npar 
     return pos, Sxyz, MostboundId
 
