@@ -21,14 +21,14 @@ struct Vel
     float z;
 };
 
-int Mill(int argc, int N, float *py_pos, float *Sxyz, long long *MostboundId)
+int Mill(char snap_path[], char post_path[], int argc, int N, float *py_pos, float *Sxyz, long long *MostboundId)
 /*    int N=1; //group number */
 {
 
     printf("\n\n");
     void *Par[20];  // Input parameter;
     char OutputDir[200];
-    sprintf(OutputDir,"/data/inspur_disk02/Simulations/Millennium/snapdir_063");
+    sprintf(OutputDir, snap_path);
     int num=63;
     int TotNgroups;
 
@@ -77,7 +77,7 @@ int Mill(int argc, int N, float *py_pos, float *Sxyz, long long *MostboundId)
     Len=GroupLen[N];
     printf("group length: %d\n",Len);
     char PostProcDir[200];
-    sprintf(PostProcDir,"/data/inspur_disk02/Simulations/Millennium/postproc_063");
+    sprintf(PostProcDir, post_path);
     float vel[Len*3], pos[Len*3];
     float Sx,Sy,Sz=0.0;
     Par[0]=OutputDir;
