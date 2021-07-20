@@ -26,16 +26,16 @@ class ReadGroupParticle(object):
         psxyz = ffi.cast("float *", Sxyz.ctypes.data)
         pmb = ffi.cast("long long *", MostboundId.ctypes.data)
         group_len = Mill(psnap, ppost, group_rank, ppos, psxyz, pmb)
-        assert group_len == npar
+        assert group_len == npar, "{} {}".format(group_len, npar)
         return pos, Sxyz, MostboundId
 
 
 if __name__ == "__main__":
     BaseDir = "/data/inspur_disk02/Simulations/Millennium/"
     Gnum=[4386162,3831945,2162498,2117511,2117472,1838697,1838697] # group particle number
-    rank = np.range(len(Gnum)) + 1
+    rank = np.arange(len(Gnum))
     rgp = ReadGroupParticle(BaseDir = BaseDir)
     for i in range(len(Gnum)):
-        pos, centre, mb = rgp.readgroup(snap_path, post_path, Gnum[N], N)
+        pos, centre, mb = rgp.readgroup(Gnum[i], rank[i])
         print(centre)
         print(mb)
