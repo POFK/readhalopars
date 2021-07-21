@@ -13,7 +13,7 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3",
     ],
-    install_requires=["cffi>=1.0.0"],
+    install_requires=["cffi>=1.0.0", "numpy>=1.20.2"],
     setup_requires=["cffi>=1.0.0"],
     packages=find_packages(),
     include_dirs=["./rhp"],

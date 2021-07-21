@@ -1,6 +1,18 @@
 # readhalopars
 Use hash table to read MSI halo particles
 
+## Install
+
+``` sh
+git clone https://github.com/POFK/readhalopars.git
+cd readhalopars
+python setup.py install
+```
+
+Before you use it, you should set `ulimit -s unlimited` in your terminal or `bashrc` first.
+
+
+## Example
 ``` 
 import numpy as np
 from rhp.rhp import ReadGroupParticleClass
@@ -14,4 +26,4 @@ for i in range(len(Gnum)):
     print(centre)
     print(mb)
 ```
-
+Here the returned values `pos`, `centre`, `mb` indicate group particles position, group centre position and mostboundid. 
